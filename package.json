@@ -1,6 +1,6 @@
 {
   "name": "i18next-react-postprocessor",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "embed React elements inside your i18next translation strings",
   "main": "lib/index.js",
   "module": "src/index.js",
