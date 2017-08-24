@@ -13,7 +13,7 @@ because sometimes you just want to dump some JSX into your l10n'd text and don't
 
 # Usage
 
-import the package in the usual way, and use a new instance of the class as i18next middleware:
+import the package in the usual way, and use a new instance of the exported class as i18next middleware:
 
     import i18next from 'i18next';
     import ReactPostprocessor from 'i18next-react-postprocessor';
