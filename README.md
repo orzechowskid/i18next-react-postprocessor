@@ -57,7 +57,7 @@ the postprocessor by default looks for tokens delimited by `<angleyBrackets>` to
         }
       });
 
-variables for interpolation are specified just like any other i18next variable:
+element interpolation is done just like regular ol' string interpolation:
 
     render() {
       return (
