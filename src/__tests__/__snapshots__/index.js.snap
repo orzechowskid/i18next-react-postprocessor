@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`the ReactElementPostprocessor process function replaces tokens with elements 1`] = `
+Array [
+  "foo ",
+  <span>
+    hello
+</span>,
+  " ",
+  <div>
+    also hello
+</div>,
+  " bar",
+]
+`;
+
+exports[`the ReactElementPostprocessor process function replaces tokens with elements when using custom delimiters 1`] = `
+Array [
+  "foo ",
+  <span>
+    hello
+</span>,
+  " ",
+  <div>
+    also hello
+</div>,
+  " bar",
+]
+`;
