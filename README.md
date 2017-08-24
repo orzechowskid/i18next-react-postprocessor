@@ -63,12 +63,7 @@ variables for interpolation are specified just like any other i18next variable:
       return (
         <div>
           {i18next.t(`myKey`, {
-            clickHere: (
-              <img
-                onClick={() => console.log(`click!`)}
-                src="pug.jpg"
-              />
-            ),
+            clickHere: ( <img onClick={() => console.log(`click!`)} src="pug.jpg" /> ),
             postProcess: `reactPostprocessor`
           })}
         </div>
