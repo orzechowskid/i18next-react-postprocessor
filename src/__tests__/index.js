@@ -45,6 +45,14 @@ describe(`the ReactElementPostprocessor process function`, function() {
         expect(result).toMatchSnapshot();
     });
 
+    it(`returns the original string when there's nothing to replace`, function() {
+        const plugin = new ReactElementPostprocessor();
+        const string = `foo bar`;
+        const result = plugin.process(string, `__unused`, {});
+
+        expect(result).toEqual(string);
+    });
+
     it(`replaces unknown tokens with the empty string`, function() {
         const plugin = new ReactElementPostprocessor();
         const string = `foo <__missing> bar`;
