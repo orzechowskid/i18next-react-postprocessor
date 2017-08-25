@@ -92,7 +92,7 @@ all fields are optional.
     $ npm run example
     $ open http://localhost:8080
     [ verify verify verify... ]
-    $ npm run build:production
+    $ npm run build
 
 # Testing
 

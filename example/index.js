@@ -5,9 +5,10 @@ import ReactDOM from 'react-dom';
 import ReactPostprocessor from '../src/index.js';
 
 function t(key, opts) {
-    return i18next.t(key, Object.assign({}, opts, {
+    return i18next.t(key, {
+        ...opts,
         postProcess: `reactPostprocessor`
-    }));
+    });
 }
 
 class ExampleComponent extends React.Component {
@@ -17,12 +18,12 @@ class ExampleComponent extends React.Component {
                 {t(`text`, {
                      name: `Alice`,
                      clickHere: (
-                         <a
-                             href="//www.example.com"
+                         <span
                              onClick={() => console.log(`click`)}
+                             style={{cursor: `pointer`}}
                          >
                              {t(`clickMe`)}
-                         </a>
+                         </span>
                      )
                 })}
             </div>
@@ -38,13 +39,13 @@ i18next
             en: {
                 translation: {
                     clickMe: `click me`,
-                    text: `hello, {{name}}, <clickHere> and you will be taken to example.com .`
+                    text: `hello, {{name}}, <clickHere> and you will get a message in your console .`
                 }
             },
             fr: {
                 translation: {
                     clickMe: `cliquez-moi`,
-                    text: `bonjour, {{name}}, <clickHere> et voila, example.com .`
+                    text: `bonjour, {{name}}, <clickHere> et voila.`
                 }
             }
         }
