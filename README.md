@@ -37,12 +37,23 @@ then when it's time to render translated strings, make sure you set the `postPro
       );
     }
 
+or, if you're using it in more than just a few places, it might be worth adding it to i18next's init options:
+
+    i18next
+      .use(new ReactPostprocessor())
+      .init({
+        postProcess: [ `reactPostprocessor` ]
+      });
+      
+    // now you don't need to specify "postProcess: 'reactPostprocessor'" when calling i18next.t
+
 the postprocessor by default looks for tokens delimited by `<angleyBrackets>` to perform interpolation of React elements:
 
     i18next
       .use(new ReactPostprocessor())
       .init({
         lng: `en`,
+        postProcess: [ `reactPostprocessor` ],
         resources: {
           en: {
             translation: {
@@ -63,8 +74,7 @@ element interpolation is done just like regular ol' string interpolation:
       return (
         <div>
           {i18next.t(`myKey`, {
-            clickHere: ( <img onClick={() => console.log(`click!`)} src="pug.jpg" /> ),
-            postProcess: `reactPostprocessor`
+            clickHere: ( <img onClick={() => console.log(`click!`)} src="pug.jpg" /> )
           })}
         </div>
       );
