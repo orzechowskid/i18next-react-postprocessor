@@ -3,7 +3,29 @@ import React from 'react';
 import {
     buildRegexFromOptions,
     getKeyForElement
-} from './utils.js';
+} from './utils';
+
+function clone(element) {
+    if (!element.$$typeof) {
+        throw new Error(`clone() requires an element`);
+    }
+
+    const {
+        props,
+        type: Type
+    } = element;
+    const key = getKeyForElement(element);
+
+    /* clone element and add a `key` prop so React won't complain */
+    return (
+        <Type
+            {...props}
+            key={key}
+        >
+            {props.children}
+        </Type>
+    );
+}
 
 class ReactElementPostprocessor {
     constructor(opts = {}) {
@@ -25,7 +47,7 @@ class ReactElementPostprocessor {
         });
     }
 
-    process(value, key, options, translator) {
+    process(value, key, options) {
         const tokens = value.split(this.searchRegex);
 
         if (tokens.length === 1) {
@@ -35,7 +57,7 @@ class ReactElementPostprocessor {
 
         return tokens
             .filter(Boolean) // don't care about empty strings
-            .map((token, tokenIndex) => {
+            .map((token) => {
                 if (!this.searchRegex.test(token)) {
                     return token;
                 }
@@ -47,23 +69,19 @@ class ReactElementPostprocessor {
                 if (!element) {
                     return this.keepUnknownVariables
                         ? token
-                        : ``
-                };
-
-                /* if it's not a React element, don't process it as one */
-                if (!element.$$typeof) {
-                    return element;
+                        : ``;
                 }
 
-                /* clone element and add a `key` prop so React won't complain */
-                return (
-                    <element.type
-                        {...element.props}
-                        key={getKeyForElement(element, tokenIndex)}
-                    >
-                        {element.props.children}
-                    </element.type>
-                );
+                if (element.$$typeof) {
+                    return clone(element);
+                } else if (typeof element === `function`) {
+                    return clone(element());
+                }
+                console.info(``);
+
+                return this.keepUnknownVariables
+                    ? token
+                    : ``;
             });
     }
 }

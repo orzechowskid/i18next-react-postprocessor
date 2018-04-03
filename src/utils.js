@@ -37,17 +37,16 @@ function buildRegexFromOptions(opts) {
 
 /**
  * @param {ReactElement} element
- * @param {Number} tokenIndex - index of token in i18next value string
  * @return {String} a string suitable for use as a ReactElement key
  */
-function getKeyForElement(element, tokenIndex) {
-    if (!element || tokenIndex === undefined) {
-        throw new Error(`element and tokenIndex must be provided`);
+function getKeyForElement(element) {
+    if (!element) {
+        throw new Error(`getKeyForElement() requires an element`);
     }
 
     return md5(JSON.stringify({
         ...element.props,
-        __position: tokenIndex
+        __element: String(element)
     }));
 }
 
