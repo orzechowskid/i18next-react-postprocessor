@@ -1,6 +1,8 @@
 import React from 'react';
 
-import ReactElementPostprocessor from '../index.js';
+import ReactElementPostprocessor, {
+    clone
+} from '../index.js';
 
 describe(`the ReactElementPostprocessor class definition`, function() {
     it(`sets the proper fields upon instantiation`, function() {
@@ -30,6 +32,16 @@ describe(`the ReactElementPostprocessor process function`, function() {
     it(`replaces tokens with elements`, function() {
         const plugin = new ReactElementPostprocessor();
         const result = plugin.process(string, `__unused`, i18nextOpts);
+
+        expect(result).toMatchSnapshot();
+    });
+
+    it(`replaces tokens with functional components`, function() {
+        const plugin = new ReactElementPostprocessor();
+        const result = plugin.process(string, `__unused`, {
+            token1: element1,
+            token2: () => <div>hello from sfc</div>
+        });
 
         expect(result).toMatchSnapshot();
     });
@@ -81,7 +93,7 @@ describe(`the ReactElementPostprocessor process function`, function() {
         ]);
     });
 
-    it(`doesn't try anything funny if the interpolation value is not a React element`, function() {
+    it(`doesn't try anything funny if the interpolation value is not supported`, function() {
         const plugin = new ReactElementPostprocessor();
         const result = plugin.process(string, `__unused`, {
             token1: `t1`,
@@ -95,5 +107,34 @@ describe(`the ReactElementPostprocessor process function`, function() {
             `t2`,
             ` bar`
         ]);
+    });
+});
+
+describe(`the clone() helper function`, function() {
+    it(`clones the provided element and gives it a key prop`, function() {
+        const key = `deadbeef`
+        const props = {
+            foo: `bar`,
+            baz: false
+        };
+        const result = clone(<span {...props} />, key);
+
+        expect(result.props).toEqual(props);
+        expect(result.key).toEqual(key);
+    });
+
+    it(`throws when not provided a key`, function() {
+        expect(function() {
+            const _rc = clone(<br />);
+        }).toThrow();
+    });
+
+    it(`throws when passed something that's not a React element`, function() {
+        expect(function() {
+            const _rc = clone({
+                foo: `bar`,
+                baz: false
+            });
+        }).toThrow();
     });
 });

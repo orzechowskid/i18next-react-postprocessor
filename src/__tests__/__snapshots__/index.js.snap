@@ -27,3 +27,17 @@ Array [
   " bar",
 ]
 `;
+
+exports[`the ReactElementPostprocessor process function replaces tokens with functional components 1`] = `
+Array [
+  "foo ",
+  <span>
+    hello
+</span>,
+  " ",
+  <div>
+    hello from sfc
+</div>,
+  " bar",
+]
+`;

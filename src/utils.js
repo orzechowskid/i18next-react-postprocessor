@@ -42,7 +42,7 @@ function buildRegexFromOptions(opts) {
  */
 function getKeyForElement(element, tokenIndex) {
     if (!element || tokenIndex === undefined) {
-        throw new Error(`element and tokenIndex must be provided`);
+        throw new Error(`getKeyForElement() must be provided element and tokenIndex`);
     }
 
     return md5(JSON.stringify({

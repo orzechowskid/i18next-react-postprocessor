@@ -3,7 +3,28 @@ import React from 'react';
 import {
     buildRegexFromOptions,
     getKeyForElement
-} from './utils.js';
+} from './utils';
+
+export function clone(element, key) {
+    if (!element.$$typeof || !key) {
+        throw new Error(`clone() requires an element and key`);
+    }
+
+    const {
+        props,
+        type: Type
+    } = element;
+
+    /* clone element and add a `key` prop so React won't complain */
+    return (
+        <Type
+            {...props}
+            key={key}
+        >
+            {props.children}
+        </Type>
+    );
+}
 
 class ReactElementPostprocessor {
     constructor(opts = {}) {
@@ -25,7 +46,7 @@ class ReactElementPostprocessor {
         });
     }
 
-    process(value, key, options, translator) {
+    process(value, key, options) {
         const tokens = value.split(this.searchRegex);
 
         if (tokens.length === 1) {
@@ -47,23 +68,18 @@ class ReactElementPostprocessor {
                 if (!element) {
                     return this.keepUnknownVariables
                         ? token
-                        : ``
-                };
-
-                /* if it's not a React element, don't process it as one */
-                if (!element.$$typeof) {
-                    return element;
+                        : ``;
                 }
 
-                /* clone element and add a `key` prop so React won't complain */
-                return (
-                    <element.type
-                        {...element.props}
-                        key={getKeyForElement(element, tokenIndex)}
-                    >
-                        {element.props.children}
-                    </element.type>
-                );
+                if (element.$$typeof) {
+                    return clone(element, getKeyForElement(element, tokenIndex));
+                } else if (typeof element === `function`) {
+                    const el = element();
+
+                    return clone(el, getKeyForElement(el, tokenIndex));
+                } else {
+                    return element;
+                }
             });
     }
 }

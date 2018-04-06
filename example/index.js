@@ -11,24 +11,37 @@ function t(key, opts) {
     });
 }
 
-class ExampleComponent extends React.Component {
-    render() {
-        return (
+function ExampleComponent() {
+    return (
+        <div>
             <div>
                 {t(`text`, {
-                     name: `Alice`,
-                     clickHere: (
-                         <span
-                             onClick={() => console.log(`click`)}
-                             style={{cursor: `pointer`}}
-                         >
-                             {t(`clickMe`)}
-                         </span>
-                     )
+                    name: `Alice`,
+                    clickHere: (
+                        <span
+                            onClick={() => console.log(`click`)}
+                            style={{ cursor: `pointer` }}
+                        >
+                            {t(`clickMe`)}
+                        </span>
+                    )
                 })}
             </div>
-        );
-    }
+            <div>
+                {t(`text`, {
+                    name: `Bob`,
+                    clickHere: () => (
+                        <span
+                            onClick={() => console.log(`click`)}
+                            style={{ cursor: `pointer` }}
+                        >
+                            {t(`clickMe`)}
+                        </span>
+                    )
+                })}
+            </div>
+        </div>
+    );
 }
 
 i18next
@@ -39,7 +52,7 @@ i18next
             en: {
                 translation: {
                     clickMe: `click me`,
-                    text: `hello, {{name}}, <clickHere> and you will get a message in your console .`
+                    text: `hello, {{name}}, <clickHere> and you will get a message in your console.`
                 }
             },
             fr: {
