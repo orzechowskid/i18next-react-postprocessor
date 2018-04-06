@@ -2,7 +2,7 @@ import React from 'react';
 
 import ReactElementPostprocessor, {
     clone
-} from '../index.js';
+} from '../postprocessor.js';
 
 describe(`the ReactElementPostprocessor class definition`, function() {
     it(`sets the proper fields upon instantiation`, function() {

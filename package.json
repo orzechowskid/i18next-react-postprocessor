@@ -1,8 +1,8 @@
 {
   "name": "i18next-react-postprocessor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "embed React elements inside your i18next translation strings",
-  "hompage": "https://github.com/orzechowskid/i18next-react-postprocessor",
+  "homepage": "https://github.com/orzechowskid/i18next-react-postprocessor",
   "main": "lib/index.js",
   "module": "src/index.js",
   "scripts": {
