@@ -5,16 +5,15 @@ import {
     getKeyForElement
 } from './utils';
 
-function clone(element) {
-    if (!element.$$typeof) {
-        throw new Error(`clone() requires an element`);
+export function clone(element, key) {
+    if (!element.$$typeof || !key) {
+        throw new Error(`clone() requires an element and key`);
     }
 
     const {
         props,
         type: Type
     } = element;
-    const key = getKeyForElement(element);
 
     /* clone element and add a `key` prop so React won't complain */
     return (
@@ -57,7 +56,7 @@ class ReactElementPostprocessor {
 
         return tokens
             .filter(Boolean) // don't care about empty strings
-            .map((token) => {
+            .map((token, tokenIndex) => {
                 if (!this.searchRegex.test(token)) {
                     return token;
                 }
@@ -73,15 +72,14 @@ class ReactElementPostprocessor {
                 }
 
                 if (element.$$typeof) {
-                    return clone(element);
+                    return clone(element, getKeyForElement(element, tokenIndex));
                 } else if (typeof element === `function`) {
-                    return clone(element());
-                }
-                console.info(``);
+                    const el = element();
 
-                return this.keepUnknownVariables
-                    ? token
-                    : ``;
+                    return clone(el, getKeyForElement(el, tokenIndex));
+                } else {
+                    return element;
+                }
             });
     }
 }
