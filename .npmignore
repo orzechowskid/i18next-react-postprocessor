@@ -1,4 +1,6 @@
 *~
 node_modules
 .babelrc
-
+example
+coverage
+webpack.config.js
