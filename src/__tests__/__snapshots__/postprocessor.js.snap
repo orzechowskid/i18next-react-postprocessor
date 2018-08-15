@@ -5,11 +5,11 @@ Array [
   "foo ",
   <span>
     hello
-</span>,
+  </span>,
   " ",
   <div>
     also hello
-</div>,
+  </div>,
   " bar",
 ]
 `;
@@ -19,11 +19,11 @@ Array [
   "foo ",
   <span>
     hello
-</span>,
+  </span>,
   " ",
   <div>
     also hello
-</div>,
+  </div>,
   " bar",
 ]
 `;
@@ -33,11 +33,11 @@ Array [
   "foo ",
   <span>
     hello
-</span>,
+  </span>,
   " ",
   <div>
     hello from sfc
-</div>,
+  </div>,
   " bar",
 ]
 `;
