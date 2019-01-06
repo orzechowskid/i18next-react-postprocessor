@@ -1,21 +1,48 @@
 {
-  "env": {
-    "development": {
-      "presets": [[
-        "es2015"
-      ], [
-        "react"
-      ]]
+    "env": {
+        "test": {
+            "plugins": [[
+                "transform-object-rest-spread"
+            ]],
+            "presets": [[
+                "env", {
+                    "modules": "commonjs",
+                    "useBuiltIns": "usage",
+                    "debug": false
+                }
+            ], [
+                "react"
+            ], [
+                "jest"
+            ]]
+        },
+        "development": {
+            "plugins": [[
+                "external-helpers"
+            ], [
+                "transform-object-rest-spread"
+            ]]
+        },
+        "production": {
+            "plugins": [[
+                "external-helpers"
+            ], [
+                "transform-object-rest-spread"
+            ]]
+        }
     },
-    "production": {
-      "presets": [[
-        "es2015-rollup"
-      ], [
+    "ignore": [
+        "node_modules/**/*"
+    ],
+    "plugins": [],
+    "presets": [[
+        "env", {
+            "modules": false,
+            "targets": {
+                "browsers": [ "last 2 versions" ]
+            }
+        }
+    ], [
         "react"
-      ]]
-    }
-  },
-  "plugins": [[
-    "transform-object-rest-spread"
-  ]]
+    ]]
 }

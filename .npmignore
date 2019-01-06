@@ -3,6 +3,7 @@ node_modules
 .babelrc
 example
 coverage
-webpack.config.js
 rollup.config.js
 .eslintrc
+src
+__tests__

@@ -26,19 +26,19 @@ describe(`the buildRegexFromOptions function`, function() {
 
     it(`throws if prefix or suffix is not provided`, function() {
         expect(function() {
-            const rc = buildRegexFromOptions({
+            buildRegexFromOptions({
                 prefix: `<`
             });
         }).toThrow();
 
         expect(function() {
-            const rc = buildRegexFromOptions({
+            buildRegexFromOptions({
                 suffix: `>`
             });
         }).toThrow();
 
         expect(function() {
-            const rc = buildRegexFromOptions();
+            buildRegexFromOptions();
         }).toThrow();
     });
 });
@@ -104,13 +104,13 @@ describe(`the getKeyForElement function`, function() {
         const index1 = 1;
 
         expect(function() {
-            const rc = getKeyForElement(element1);
+            getKeyForElement(element1);
         }).toThrow();
         expect(function() {
-            const rc = getKeyForElement(undefined, index1);
+            getKeyForElement(undefined, index1);
         }).toThrow();
         expect(function() {
-            const rc = getKeyForElement();
+            getKeyForElement();
         }).toThrow();
     });
 });
