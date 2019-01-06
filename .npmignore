@@ -6,3 +6,4 @@ coverage
 rollup.config.js
 .eslintrc
 src
+__tests__
