@@ -1,33 +1,20 @@
 {
     "env": {
         "test": {
-            "plugins": [[
-                "transform-object-rest-spread"
-            ]],
             "presets": [[
-                "env", {
-                    "modules": "commonjs",
-                    "useBuiltIns": "usage",
-                    "debug": false
-                }
+                "@babel/env"
             ], [
-                "react"
-            ], [
-                "jest"
+                "@babel/react"
             ]]
         },
         "development": {
             "plugins": [[
-                "external-helpers"
-            ], [
-                "transform-object-rest-spread"
+                "@babel/proposal-object-rest-spread"
             ]]
         },
         "production": {
             "plugins": [[
-                "external-helpers"
-            ], [
-                "transform-object-rest-spread"
+                "@babel/proposal-object-rest-spread"
             ]]
         }
     },
@@ -36,13 +23,13 @@
     ],
     "plugins": [],
     "presets": [[
-        "env", {
+        "@babel/env", {
             "modules": false,
             "targets": {
                 "browsers": [ "last 2 versions" ]
             }
         }
     ], [
-        "react"
+        "@babel/react"
     ]]
 }

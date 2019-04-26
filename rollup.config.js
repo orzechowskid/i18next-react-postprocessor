@@ -2,10 +2,9 @@ import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import nodeResolve from 'rollup-plugin-node-resolve';
 import replace from 'rollup-plugin-replace';
-import uglify from 'rollup-plugin-uglify';
 import {
-    minify
-} from 'uglify-es';
+    terser
+} from 'rollup-plugin-terser';
 
 const APP_ENV = process.env.APP_ENV || process.env.NODE_ENV;
 
@@ -55,7 +54,7 @@ const umdConfig = {
         ...baseConfig.plugins,
         ...(APP_ENV === `development`
             ? []
-            : [ uglify({}, minify) ])
+            : [ terser({}) ])
     ]
 };
 
@@ -70,7 +69,7 @@ const esmConfig = {
         ...baseConfig.plugins,
         ...(APP_ENV === `development`
             ? []
-            : [ uglify({}, minify) ])
+            : [ terser({}) ])
     ]
 };
 
