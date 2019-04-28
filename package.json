@@ -32,6 +32,8 @@
         "i18next": "^8.4.3",
         "jest": "^24.7.1",
         "node-static": "^0.7.11",
+        "react": "^15.6.2",
+        "react-dom": "^15.6.2",
         "rollup": "^1.10.1",
         "rollup-plugin-babel": "^4.3.2",
         "rollup-plugin-commonjs": "^9.3.4",
@@ -44,9 +46,7 @@
         "react": "^15.6.1 || ^16.x"
     },
     "dependencies": {
-        "md5": "^2.2.1",
-        "react": "^15.6.2",
-        "react-dom": "^15.6.2"
+        "md5": "^2.2.1"
     },
     "jest": {
         "moduleNameMapper": {
