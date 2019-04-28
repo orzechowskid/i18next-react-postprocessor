@@ -11,6 +11,7 @@
         "build:example": "NODE_ENV=development APP_ENV=example rollup -c rollup.config.js",
         "build:prod": "NODE_ENV=production rollup -c rollup.config.js",
         "preexample": "npm run build:example",
+        "prepublishOnly": "npm run build:prod",
         "example": "static -a 0.0.0.0 -p 8808 example/",
         "test": "jest --verbose --coverage src/"
     },
