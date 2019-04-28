@@ -122,3 +122,7 @@ $ npm run build
 # Testing
 
 a full test suite is located in src/\__tests__ .  `npm run test` should run `jest --verbose --coverage`.
+
+# License
+
+MIT

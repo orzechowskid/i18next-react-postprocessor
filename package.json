@@ -3,7 +3,10 @@
     "version": "2.0.5",
     "description": "embed React elements inside your i18next translation strings",
     "homepage": "https://github.com/orzechowskid/i18next-react-postprocessor",
-    "repository": "https://github.com/orzechowskid/i18next-react-postprocessor",
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/orzechowskid/i18next-react-postprocessor.git"
+    },
     "main": "dist/index.js",
     "module": "esm/index.js",
     "scripts": {
@@ -40,8 +43,7 @@
         "rollup-plugin-commonjs": "^9.3.4",
         "rollup-plugin-node-resolve": "^4.2.3",
         "rollup-plugin-replace": "^2.2.0",
-        "rollup-plugin-terser": "^4.0.4",
-        "uglify-es": "^3.3.9"
+        "rollup-plugin-terser": "^4.0.4"
     },
     "peerDependencies": {
         "react": "^15.6.1 || ^16.x"
