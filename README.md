@@ -4,7 +4,7 @@ embed React elements inside your i18next translation strings
 
 # About
 
-because sometimes you just want to dump some JSX into your l10n'd text and don't want to be bothered with the whole react-i18next dog-and-pony show.  We use it at [Wanderu](https://www.wanderu.com/) and it works great!
+because sometimes you just want to dump some JSX into your l10n'd text and don't want to be bothered with the whole react-i18next dog-and-pony show.
 
 # Getting Started
 
