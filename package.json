@@ -1,6 +1,6 @@
 {
     "name": "i18next-react-postprocessor",
-    "version": "3.0.2",
+    "version": "3.0.3",
     "description": "embed React elements inside your i18next translation strings",
     "homepage": "https://github.com/orzechowskid/i18next-react-postprocessor",
     "repository": {
