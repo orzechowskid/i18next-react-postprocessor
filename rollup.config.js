@@ -91,7 +91,7 @@ const demoConfig = {
 };
 
 export default [
-//  umdConfig,
+  umdConfig,
   esmConfig,
-//  demoConfig
+  demoConfig
 ];
