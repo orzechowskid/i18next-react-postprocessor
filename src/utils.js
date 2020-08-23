@@ -1,4 +1,4 @@
-import md5 from 'md5';
+import md5 from 'md5-es';
 
 /**
  * @param {String} str
@@ -45,7 +45,7 @@ function getKeyForElement(element, tokenIndex) {
         throw new Error(`getKeyForElement() must be provided element and tokenIndex`);
     }
 
-    return md5(JSON.stringify({
+    return md5.hash(JSON.stringify({
         ...element.props,
         __position: tokenIndex
     }));
