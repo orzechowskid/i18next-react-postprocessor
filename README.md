@@ -114,7 +114,7 @@ $ git clone https://www.github.com/orzechowskid/i18next-react-postprocessor
 $ npm install
 [ edit edit edit... ]
 $ npm run example
-$ open http://localhost:8080
+$ open http://localhost:8808
 [ verify verify verify... ]
 $ npm run build
 ```

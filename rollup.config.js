@@ -36,9 +36,6 @@ const baseConfig = {
     }),
     babel({
       exclude: `node_modules/**`
-    }),
-    bundleAnalyzer({
-      open: true
     })
   ]
 };
