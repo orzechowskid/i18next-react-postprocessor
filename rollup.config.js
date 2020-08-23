@@ -5,7 +5,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import {
   terser
 } from 'rollup-plugin-terser';
-import bundleAnalyzer from 'rollup-plugin-visualizer';
+//import bundleAnalyzer from 'rollup-plugin-visualizer';
 
 const APP_ENV = process.env.APP_ENV || process.env.NODE_ENV;
 

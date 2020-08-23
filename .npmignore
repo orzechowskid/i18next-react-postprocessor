@@ -7,3 +7,4 @@ rollup.config.js
 .eslintrc
 src
 __tests__
+stats.html
