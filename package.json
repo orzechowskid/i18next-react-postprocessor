@@ -44,6 +44,7 @@
         "rollup": "^1.32.1",
         "rollup-plugin-babel": "^4.4.0",
         "rollup-plugin-terser": "^7.0.0",
+        "rollup-plugin-visualizer": "^4.1.0",
         "serve": "^11.3.2"
     },
     "peerDependencies": {
@@ -51,7 +52,7 @@
         "react": ">=15.6.1"
     },
     "dependencies": {
-        "md5": "^2.2.1"
+        "md5-es": "^1.8.2"
     },
     "jest": {
         "moduleNameMapper": {

@@ -5,3 +5,4 @@ esm/**/*
 coverage
 .tern-port
 example/index.dist.js
+stats.html
