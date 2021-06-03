@@ -8,3 +8,4 @@ rollup.config.js
 src
 __tests__
 stats.html
+serve.json
