@@ -9,6 +9,7 @@
     },
     "main": "dist/index.js",
     "module": "esm/index.js",
+    "types": "index.d.ts",
     "scripts": {
         "build:dev": "NODE_ENV=development rollup -c rollup.config.js",
         "build:example": "NODE_ENV=development APP_ENV=example rollup -c rollup.config.js",
