@@ -9,3 +9,4 @@ src
 __tests__
 stats.html
 serve.json
+.log
